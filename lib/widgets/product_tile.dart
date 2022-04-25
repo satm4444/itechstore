@@ -19,33 +19,33 @@ class _ProductTileState extends State<ProductTile> {
         color: Colors.black.withOpacity(0.04),
       )),
       margin: EdgeInsets.all(5),
-      height: 240,
+      height: 250,
       width: 130,
       //  color: Colors.black.withOpacity(0.07),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 120,
-            width: double.infinity,
-            //  color: Colors.blue,
-            child: Image.network(
-              widget.pro.productImage,
-              fit: BoxFit.contain,
-            ),
-          ),
+              height: 120,
+              width: double.infinity,
+              //  color: Colors.blue,
+              child: FadeInImage.assetNetwork(
+                placeholder: 'assets/images/loading1.gif',
+                image: widget.pro.productImage,
+                fit: BoxFit.contain,
+              )),
           SizedBox(
             height: 7.5,
           ),
           Container(
-            height: 35,
+            height: 45,
             //   color: Colors.yellow,
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0),
               child: Text(
                 widget.pro.name,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 2,
+                maxLines: 3,
                 style: TextStyle(
                     fontFamily: 'Nanum',
                     fontWeight: FontWeight.bold,

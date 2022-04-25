@@ -1,15 +1,22 @@
+import 'dart:ui';
+
+import 'package:badges/badges.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:itechstore/controllers/api_controller.dart';
 import 'package:itechstore/models/carousel_model.dart';
 
 import 'package:itechstore/static/all_colors.dart';
+import 'package:itechstore/views/cart_screen.dart';
 import 'package:itechstore/views/product_detail_screen.dart';
 import 'package:itechstore/views/product_list_screen.dart';
 import 'package:itechstore/widgets/banner_widget.dart';
 import 'package:itechstore/widgets/product_tile.dart';
+import 'package:itechstore/widgets/search.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -94,17 +101,29 @@ class _MainScreenState extends State<MainScreen> {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showSearch(context: context, delegate: CustomSearch());
+              },
               icon: Icon(
                 EvaIcons.search,
                 color: Colors.black,
               )),
-          IconButton(
-              onPressed: () {},
+          Badge(
+            position: BadgePosition.topEnd(top: 5, end: 3),
+            badgeContent: Text("4", style: TextStyle(color: Colors.white)),
+            child: IconButton(
+              onPressed: () {
+                Get.to(() => CartScreen());
+              },
               icon: Icon(
                 EvaIcons.shoppingCart,
                 color: Colors.black,
-              )),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 5,
+          )
         ],
       ),
       body: ListView(
@@ -122,7 +141,7 @@ class _MainScreenState extends State<MainScreen> {
               reverse: false,
               autoPlay: true,
               autoPlayInterval: Duration(seconds: 5),
-              autoPlayAnimationDuration: Duration(milliseconds: 1000),
+              autoPlayAnimationDuration: Duration(milliseconds: 1500),
               autoPlayCurve: Curves.fastOutSlowIn,
               enlargeCenterPage: true,
               scrollDirection: Axis.horizontal,
@@ -135,18 +154,47 @@ class _MainScreenState extends State<MainScreen> {
                       Get.to(() => ProductDetailScreen(),
                           arguments: [i.productId]);
                     },
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: Colors.white),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(5),
-                        child: Image.network(
-                          i.imageUrl,
-                          fit: BoxFit.cover,
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.white),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(5),
+                            child: Image.network(
+                              i.imageUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
-                      ),
+                        Positioned(
+                          left: 12,
+                          top: 110,
+                          child: Container(
+                            height: 40,
+                            width: 250,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(3),
+                                color: Colors.black.withOpacity(0.4)),
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text(
+                                  'Nvidia GTX 4040 64 GB Nvidia GTX 4040 64 GB Nvidia GTX 4040 64 GB Nvidia GTX 4040 64 GB',
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   );
                 },
@@ -158,6 +206,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
 
           //====================LAPTOPS SECTION
+
           Container(
             child: Column(
               children: [
@@ -198,7 +247,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  height: 240,
+                  height: 250,
                   child: Obx(() {
                     return ListView.builder(
                         itemCount: apiData.laptops.length,
@@ -256,7 +305,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  height: 240,
+                  height: 250,
                   child: Obx(
                     () {
                       return ListView.builder(
@@ -335,7 +384,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  height: 240,
+                  height: 250,
                   child: Obx(
                     () {
                       return ListView.builder(
@@ -395,7 +444,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  height: 240,
+                  height: 250,
                   child: Obx(
                     () {
                       return ListView.builder(
@@ -466,7 +515,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  height: 240,
+                  height: 250,
                   child: Obx(
                     () {
                       return ListView.builder(
@@ -525,7 +574,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  height: 240,
+                  height: 250,
                   child: Obx(
                     () {
                       return ListView.builder(
@@ -581,7 +630,7 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Container(
-                  height: 240,
+                  height: 250,
                   child: Obx(
                     () {
                       return ListView.builder(
