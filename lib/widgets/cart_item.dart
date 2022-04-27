@@ -1,13 +1,32 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 class CartItem extends StatefulWidget {
-  const CartItem({Key? key}) : super(key: key);
+  final bool isDelete;
+  const CartItem({Key? key, required this.isDelete}) : super(key: key);
 
   @override
   State<CartItem> createState() => _CartItemState();
 }
 
 class _CartItemState extends State<CartItem> {
+  int item = 1;
+
+  void increaseItem() {
+    setState(() {
+      item = item + 1;
+    });
+  }
+
+  void decreaseItem() {
+    setState(() {
+      item = item - 1;
+      if (item == 0) {
+        item = 1;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -72,50 +91,71 @@ class _CartItemState extends State<CartItem> {
                               ),
                             ),
                           ),
-                          Container(
-                            height: 50,
-                            width: leftAfterPad / 2,
-                            child: Row(children: [
-                              Container(
-                                width: (leftAfterPad / 2) / 3,
-                                //color: Colors.blue,
-                                child: Center(
-                                  child: Text(
-                                    "-",
-                                    style: TextStyle(
-                                      fontSize: 40,
-                                      color: Colors.black,
-                                    ),
+                          widget.isDelete
+                              ? Container(
+                                  height: 50,
+                                  //color: Colors.blue,
+                                  width: leftAfterPad / 2,
+                                  child: Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.delete_forever_outlined,
+                                          color: Colors.red,
+                                        )),
                                   ),
-                                ),
-                              ),
-                              Container(
-                                width: (leftAfterPad / 2) / 3,
-                                color: Colors.black.withOpacity(0.04),
-                                child: Center(
-                                  child: Text(
-                                    "2",
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                  width: (leftAfterPad / 2) / 3,
-                                  //   color: Colors.red,
-                                  child: Center(
-                                    child: Text(
-                                      "+",
-                                      style: TextStyle(
-                                        fontSize: 25,
-                                        color: Colors.black,
+                                )
+                              : Container(
+                                  height: 50,
+                                  width: leftAfterPad / 2,
+                                  child: Row(children: [
+                                    GestureDetector(
+                                      onTap: () => decreaseItem(),
+                                      child: Container(
+                                        width: (leftAfterPad / 2) / 3,
+                                        //color: Colors.blue,
+                                        child: Center(
+                                          child: Text(
+                                            "-",
+                                            style: TextStyle(
+                                              fontSize: 40,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ))
-                            ]),
-                          ),
+                                    Container(
+                                      width: (leftAfterPad / 2) / 3,
+                                      color: Colors.black.withOpacity(0.04),
+                                      child: Center(
+                                        child: Text(
+                                          item.toString(),
+                                          style: TextStyle(
+                                            fontSize: 22,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () => increaseItem(),
+                                      child: Container(
+                                          width: (leftAfterPad / 2) / 3,
+                                          //   color: Colors.red,
+                                          child: Center(
+                                            child: Text(
+                                              "+",
+                                              style: TextStyle(
+                                                fontSize: 25,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          )),
+                                    )
+                                  ]),
+                                ),
                         ],
                       ),
                     )

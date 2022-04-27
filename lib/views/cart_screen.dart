@@ -10,6 +10,8 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  bool isDelete = false;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -28,22 +30,37 @@ class _CartScreenState extends State<CartScreen> {
               fontWeight: FontWeight.bold),
         ),
         actions: [
-          Container(
-            height: 20,
-            width: 60,
-            //color: Colors.teal,
-            child: Center(
-              child: Text(
-                'Delete',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'RobotoR',
-                  color: Colors.black,
-                  //fontWeight: FontWeight.bold,
+          isDelete
+              ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isDelete = !isDelete;
+                    });
+                  },
+                  icon: Icon(Icons.cancel))
+              : GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isDelete = !isDelete;
+                    });
+                  },
+                  child: Container(
+                    height: 20,
+                    width: 60,
+                    //color: Colors.teal,
+                    child: Center(
+                      child: Text(
+                        'Delete',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'RobotoR',
+                          color: Colors.black,
+                          //fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
           SizedBox(
             width: 5,
           )
@@ -61,10 +78,10 @@ class _CartScreenState extends State<CartScreen> {
                     SizedBox(
                       height: 10,
                     ),
-                    CartItem(),
-                    CartItem(),
-                    CartItem(),
-                    CartItem(),
+                    CartItem(isDelete: isDelete),
+                    CartItem(isDelete: isDelete),
+                    CartItem(isDelete: isDelete),
+                    CartItem(isDelete: isDelete),
                   ],
                 ),
               ),
@@ -107,7 +124,7 @@ class _CartScreenState extends State<CartScreen> {
                             fontFamily: 'RobotoR',
                             fontWeight: FontWeight.bold,
                             fontSize: 17,
-                            color: Colors.blue,
+                            color: Colors.teal,
                           ),
                         ),
                       )
