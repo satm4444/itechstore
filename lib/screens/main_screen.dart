@@ -1,22 +1,19 @@
-import 'dart:ui';
-
 import 'package:badges/badges.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
+
 import 'package:itechstore/controllers/api_controller.dart';
 import 'package:itechstore/models/carousel_model.dart';
 
 import 'package:itechstore/static/all_colors.dart';
-import 'package:itechstore/views/cart_screen.dart';
-import 'package:itechstore/views/product_detail_screen.dart';
-import 'package:itechstore/views/product_list_screen.dart';
+import 'package:itechstore/screens/cart_screen.dart';
+import 'package:itechstore/screens/product_detail_screen.dart';
+import 'package:itechstore/screens/product_list_screen.dart';
 import 'package:itechstore/widgets/banner_widget.dart';
 import 'package:itechstore/widgets/product_tile.dart';
 import 'package:itechstore/widgets/search.dart';
-import 'package:shimmer/shimmer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -129,7 +126,7 @@ class _MainScreenState extends State<MainScreen> {
       body: ListView(
         children: [
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           CarouselSlider(
             options: CarouselOptions(

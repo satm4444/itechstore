@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:itechstore/controllers/api_controller.dart';
-import 'package:itechstore/views/auth_screens/signup_screen.dart';
-import 'package:itechstore/views/main_screen.dart';
+import 'package:itechstore/screens/auth_screens/signup_screen.dart';
+import 'package:itechstore/screens/main_screen.dart';
 import 'package:itechstore/widgets/bottom_nav_bar_widget.dart';
 
 void main() {

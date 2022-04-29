@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:itechstore/static/all_colors.dart';
-import 'package:itechstore/views/auth_screens/login_screen.dart';
-import 'package:itechstore/views/auth_screens/signup_screen.dart';
+import 'package:itechstore/screens/auth_screens/login_screen.dart';
+import 'package:itechstore/screens/auth_screens/signup_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);

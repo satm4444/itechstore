@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itechstore/static/all_colors.dart';
-import 'package:itechstore/views/after_checkout_screen.dart';
+import 'package:itechstore/screens/after_checkout_screen.dart';
 import 'package:itechstore/widgets/cart_item.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +23,8 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        elevation: 0.5,
+        elevation: 0.5, titleSpacing: 0,
+        // centerTitle: true,
         title: Text(
           "My Cart",
           style: TextStyle(

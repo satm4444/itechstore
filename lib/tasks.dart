@@ -8,16 +8,20 @@
 // login screen------done
 // home screen-------done
 // category screen-------done
-// product detail screen 
+// product detail screen ------done
 // product lists screen------done
 // fav screen-------done
 // profile screen-------done
 // cart screen--------done
+// billing screen ------done
+// admin panel
+// splashscreen
 
 //==========TASK 2=======//
 
-// authentication
+//-------------auth
+// email signup/signin
 // google sign in
-// 
+
 
 

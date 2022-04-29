@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:itechstore/controllers/api_controller.dart';
-import 'package:itechstore/views/categories_screen.dart';
-import 'package:itechstore/views/fav_screen.dart';
+import 'package:itechstore/screens/categories_screen.dart';
+import 'package:itechstore/screens/fav_screen.dart';
 
-import 'package:itechstore/views/main_screen.dart';
-import 'package:itechstore/views/profile_screen.dart';
+import 'package:itechstore/screens/main_screen.dart';
+import 'package:itechstore/screens/profile_screen.dart';
 
 class BottomNavBarWidget extends StatefulWidget {
   const BottomNavBarWidget({Key? key}) : super(key: key);

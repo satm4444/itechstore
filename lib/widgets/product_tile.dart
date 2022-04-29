@@ -2,7 +2,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:itechstore/models/product_model.dart';
 import 'package:get/get.dart';
-import 'package:itechstore/views/product_detail_screen.dart';
+import 'package:itechstore/screens/product_detail_screen.dart';
 
 class ProductTile extends StatefulWidget {
   final Product pro;
