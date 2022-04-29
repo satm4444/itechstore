@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:itechstore/static/all_colors.dart';
+import 'package:itechstore/views/after_checkout_screen.dart';
 import 'package:itechstore/widgets/cart_item.dart';
+import 'package:get/get.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -138,7 +140,9 @@ class _CartScreenState extends State<CartScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => AfterCheckOutScreen());
+                          },
                           child: Text(
                             "CheckOut",
                             style: TextStyle(

@@ -19,6 +19,11 @@ class ApiController extends GetxController {
     filteredList.value = [];
   }
 
+  //for finding single product
+  Product findSingleProduct(int id) {
+    return allProductList.firstWhere((element) => element.id == id);
+  }
+
 //for finding product list to display after a category is clicked
   void findByCategory(List<Product> proLists, String categoryname) {
     final foundList = allProductList.where((p0) => p0.category == categoryname);

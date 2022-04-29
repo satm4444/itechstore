@@ -4,15 +4,15 @@
 //==========TASK 1============//
 
 //---------------create UI
-// signup screen --done
-// login screen  --done
-// home screen   --done
-// category screen  --done
+// signup screen-------done
+// login screen------done
+// home screen-------done
+// category screen-------done
 // product detail screen 
-// product lists screen  --done
-// fav screen --done
-// profile screen  --done
-// cart screen  --done
+// product lists screen------done
+// fav screen-------done
+// profile screen-------done
+// cart screen--------done
 
 //==========TASK 2=======//
 
@@ -21,12 +21,3 @@
 // 
 
 
-//-----UI/UX------//
-
-//HOMESCREEN
-//--Image Crousel
-//--ListView
-//--ListView
-//--BannerAd
-//--ListView
-//--ListView

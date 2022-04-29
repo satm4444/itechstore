@@ -129,19 +129,19 @@ class _MainScreenState extends State<MainScreen> {
       body: ListView(
         children: [
           SizedBox(
-            height: 15,
+            height: 10,
           ),
           CarouselSlider(
             options: CarouselOptions(
-              height: 160,
+              height: 170,
               aspectRatio: 16 / 9,
-              viewportFraction: 0.8,
+              viewportFraction: 1,
               initialPage: 0,
               enableInfiniteScroll: true,
               reverse: false,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 5),
-              autoPlayAnimationDuration: Duration(milliseconds: 1500),
+              autoPlayInterval: Duration(seconds: 4),
+              autoPlayAnimationDuration: Duration(milliseconds: 600),
               autoPlayCurve: Curves.fastOutSlowIn,
               enlargeCenterPage: true,
               scrollDirection: Axis.horizontal,
@@ -159,10 +159,10 @@ class _MainScreenState extends State<MainScreen> {
                         Container(
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
+                              //   borderRadius: BorderRadius.circular(5),
                               color: Colors.white),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(5),
+                            // borderRadius: BorderRadius.circular(5),
                             child: Image.network(
                               i.imageUrl,
                               fit: BoxFit.cover,
@@ -174,7 +174,7 @@ class _MainScreenState extends State<MainScreen> {
                           top: 110,
                           child: Container(
                             height: 40,
-                            width: 250,
+                            width: 300,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(3),
                                 color: Colors.black.withOpacity(0.4)),
